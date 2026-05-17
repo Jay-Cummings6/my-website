@@ -21,75 +21,96 @@
       min-height: 100vh;
     }
 
-    /* ── TOP BAR ── */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .topbar {
-      padding: 1.25rem 2.5rem;
+      padding: 1.1rem 2rem;
       border-bottom: 1px solid rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
+      background: #f5f4f0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .topbar-name {
       font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 17px;
+      font-size: 16px;
       font-style: italic;
       letter-spacing: -0.01em;
     }
 
-    /* ── LAYOUT ── */
     .layout {
       display: grid;
-      grid-template-columns: 210px 1fr;
-      min-height: calc(100vh - 57px);
+      grid-template-columns: 190px 1fr;
+      min-height: calc(100vh - 50px);
     }
 
-    /* ── SIDEBAR ── */
     .sidebar {
       border-right: 1px solid rgba(0,0,0,0.1);
-      padding: 2.5rem 1.75rem;
+      padding: 2rem 1.5rem;
       display: flex;
       flex-direction: column;
       position: sticky;
-      top: 57px;
-      height: calc(100vh - 57px);
+      top: 50px;
+      height: calc(100vh - 50px);
     }
 
-    .tab-main {
-      font-size: 13px;
+    .main-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .tab {
+      font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       cursor: pointer;
-      color: #1a1a18;
       padding: 2px 0;
       display: inline-block;
-      border-bottom: 2px solid #1a1a18;
       transition: opacity 0.15s;
       user-select: none;
+      color: #1a1a18;
     }
 
-    .tab-main:not(.active) {
+    .tab.active {
+      border-bottom: 2px solid #1a1a18;
+      opacity: 1;
+    }
+
+    .tab:not(.active) {
       border-bottom: none;
       opacity: 0.3;
     }
 
+    .tab:not(.active):hover {
+      opacity: 0.6;
+    }
+
     .sidebar-divider {
       height: 1px;
-      background: rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.1);
       margin: 1.75rem 0;
     }
 
-    .secondary-links {
+    .sec-links {
       display: flex;
       flex-direction: column;
       gap: 0.65rem;
     }
 
     .sec-link {
-      font-size: 13px;
-      color: #1a1a18;
+      font-size: 12px;
       opacity: 0.4;
+      color: #1a1a18;
       text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
       transition: opacity 0.15s;
       letter-spacing: 0.01em;
     }
@@ -98,73 +119,16 @@
       opacity: 0.9;
     }
 
-    /* ── MAIN CONTENT ── */
-    .main {
-      padding: 3.5rem 4rem;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      margin-bottom: 4rem;
-    }
-
-    .photo-box {
-      width: 100%;
-      max-width: 380px;
-      height: 260px;
-      border-radius: 10px;
-      background: rgba(0,0,0,0.06);
-      margin-bottom: 2.25rem;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-placeholder-text {
-      font-size: 12px;
+    .sec-link-sub {
+      font-size: 10px;
       opacity: 0.3;
-      font-style: italic;
-      letter-spacing: 0.04em;
+      display: block;
+      margin-top: 1px;
+      letter-spacing: 0.01em;
     }
 
-    .hero-tag {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      opacity: 0.4;
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-
-    .hero h1 {
-      font-family: 'Instrument Serif', Georgia, serif;
-      font-size: clamp(44px, 5vw, 68px);
-      font-weight: 400;
-      font-style: italic;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-bio {
-      font-size: 16px;
-      opacity: 0.55;
-      max-width: 440px;
-      line-height: 1.85;
-      font-weight: 300;
-    }
-
-    .section-divider {
-      height: 1px;
-      background: rgba(0,0,0,0.1);
-      margin-bottom: 3rem;
+    .main {
+      overflow: hidden;
     }
 
     .panel {
@@ -175,8 +139,67 @@
       display: block;
     }
 
+    .photo-full {
+      width: 100%;
+      height: 340px;
+      background: rgba(0,0,0,0.07);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .photo-placeholder {
+      font-size: 12px;
+      opacity: 0.3;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    .about-section {
+      padding: 3.5rem 4rem;
+    }
+
+    .about-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      opacity: 0.4;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .about-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(42px, 5vw, 64px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-bio {
+      font-size: 16px;
+      opacity: 0.55;
+      max-width: 440px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .projects-inner {
+      padding: 3.5rem 4rem;
+    }
+
     .panel-label {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.14em;
       opacity: 0.4;
       margin-bottom: 2rem;
@@ -203,16 +226,17 @@
         height: auto;
         border-right: none;
         border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding: 1.5rem;
+        padding: 1.25rem 1.5rem;
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
         gap: 1rem;
       }
+      .main-tabs { flex-direction: row; gap: 1rem; }
       .sidebar-divider { display: none; }
-      .secondary-links { flex-direction: row; gap: 1rem; }
-      .main { padding: 2.5rem 1.5rem; }
-      .photo-box { max-width: 100%; height: 220px; }
+      .sec-links { flex-direction: row; gap: 1rem; }
+      .about-section, .projects-inner { padding: 2.5rem 1.5rem; }
+      .photo-full { height: 220px; }
     }
   </style>
 </head>
@@ -226,59 +250,79 @@
 
     <div class="sidebar">
       <div class="main-tabs">
-        <span class="tab-main active" onclick="switchTab('projects', this)">Projects</span>
+        <span class="tab active" onclick="switchTab('home', this)">Home</span>
+        <span class="tab" onclick="switchTab('projects', this)">Projects</span>
       </div>
 
       <div class="sidebar-divider"></div>
 
-      <div class="secondary-links">
-        <!-- REPLACE YOUR_RESUME_LINK_HERE with your actual resume URL -->
-        <a class="sec-link" href="YOUR_RESUME_LINK_HERE" target="_blank">Resume</a>
-        <a class="sec-link" href="https://linkedin.com/in/jay-cummings-aa9079250/" target="_blank">LinkedIn</a>
-        <a class="sec-link" href="mailto:cummjt23@wfu.edu">Email</a>
+      <div class="sec-links">
+
+        <!-- RESUME: replace the href with your actual GitHub resume URL once uploaded -->
+        <a class="sec-link" href="Jay_Cummings_Resume.pdf" target="_blank">
+          Resume
+        </a>
+
+        <a class="sec-link" href="https://linkedin.com/in/jay-cummings-aa9079250/" target="_blank">
+          LinkedIn
+        </a>
+
+        <!-- EMAIL with address shown underneath -->
+        <a class="sec-link" href="mailto:jaytcummings31@gmail.com">
+          Email
+          <span class="sec-link-sub">jaytcummings31@gmail.com</span>
+        </a>
+
       </div>
     </div>
 
     <div class="main">
-      <div class="hero">
 
-        <!-- PHOTO: upload your photo to GitHub and replace YOUR_PHOTO_HERE.jpg with the filename -->
-        <div class="photo-box">
-          <img src="YOUR_PHOTO_HERE.jpg" alt="Jay Cummings"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-          <span class="photo-placeholder-text" style="display:none;">Photo coming soon</span>
+      <div id="panel-home" class="panel active">
+
+        <!-- PHOTO: rename your photo to photo.jpg and upload it to GitHub -->
+        <div class="photo-full">
+          <img
+            src="photo.jpg"
+            alt="Jay Cummings"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <span class="photo-placeholder" style="display:none;">Photo coming soon</span>
         </div>
 
-        <!-- EDIT YOUR TAG LINE HERE -->
-        <p class="hero-tag">MARKETING · EVENTS · STRATEGY</p>
+        <div class="about-section">
+          <p class="about-label">ABOUT</p>
 
-        <!-- YOUR NAME -->
-        <h1>Jay<br>Cummings</h1>
+          <!-- EDIT YOUR NAME HERE -->
+          <h1 class="about-name">Jay<br>Cummings</h1>
 
-        <!-- EDIT YOUR BIO HERE -->
-        <p class="hero-bio">
-          Marketing & Business student at Wake Forest University. I build events, teams, and community programs that actually mean something.
-        </p>
+          <!-- EDIT YOUR BIO HERE -->
+          <p class="about-bio">
+            Marketing & Business student at Wake Forest University. I build events, teams, and community programs that actually mean something.
+          </p>
+        </div>
 
       </div>
 
-      <div class="section-divider"></div>
+      <div id="panel-projects" class="panel">
+        <div class="projects-inner">
+          <p class="panel-label">PROJECTS</p>
 
-      <div id="panel-projects" class="panel active">
-        <p class="panel-label">PROJECTS</p>
+          <!-- DELETE this when you have real projects -->
+          <div class="placeholder">
+            <p>Projects coming soon.</p>
+          </div>
 
-        <!-- DELETE this when you have real projects to add -->
-        <div class="placeholder">
-          <p>Projects coming soon.</p>
+          <!-- HOW TO ADD A PROJECT LATER — copy this block for each one:
+
+          <div style="margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(0,0,0,0.08);">
+            <p style="font-size: 11px; letter-spacing: 0.1em; opacity: 0.4; margin-bottom: 0.5rem;">2025</p>
+            <h2 style="font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; margin-bottom: 0.6rem;">Project Name</h2>
+            <p style="font-size: 15px; opacity: 0.55; line-height: 1.8; max-width: 480px;">Short description of what the project was and what you did.</p>
+          </div>
+
+          -->
         </div>
-
-        <!-- EXAMPLE project block — copy and paste for each project:
-        <div style="margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(0,0,0,0.08);">
-          <p style="font-size: 11px; letter-spacing: 0.1em; opacity: 0.4; margin-bottom: 0.5rem;">2025</p>
-          <h2 style="font-family: 'Instrument Serif', serif; font-size: 22px; font-weight: 400; margin-bottom: 0.5rem;">Project Name</h2>
-          <p style="font-size: 15px; opacity: 0.55; line-height: 1.8;">Short description of the project and your role.</p>
-        </div>
-        -->
       </div>
 
     </div>
@@ -287,14 +331,14 @@
   <script>
     function switchTab(name, el) {
       document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-main').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       document.getElementById('panel-' + name).classList.add('active');
       el.classList.add('active');
     }
 
-    window.addEventListener('load', function() {
-      const img = document.querySelector('.photo-box img');
-      if (img && img.src.includes('YOUR_PHOTO_HERE')) {
+    window.addEventListener('load', function () {
+      const img = document.querySelector('.photo-full img');
+      if (img && (img.naturalWidth === 0)) {
         img.style.display = 'none';
         img.nextElementSibling.style.display = 'block';
       }
