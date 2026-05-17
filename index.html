@@ -1,25 +1,305 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Website</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 50px;
-        background-color: #f0f0f0;
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jay Cummings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f5f4f0;
+      color: #1a1a18;
+      min-height: 100vh;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 17px;
+      font-style: italic;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      min-height: calc(100vh - 57px);
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      border-right: 1px solid rgba(0,0,0,0.1);
+      padding: 2.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 57px;
+      height: calc(100vh - 57px);
+    }
+
+    .tab-main {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: #1a1a18;
+      padding: 2px 0;
+      display: inline-block;
+      border-bottom: 2px solid #1a1a18;
+      transition: opacity 0.15s;
+      user-select: none;
+    }
+
+    .tab-main:not(.active) {
+      border-bottom: none;
+      opacity: 0.3;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.12);
+      margin: 1.75rem 0;
+    }
+
+    .secondary-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .sec-link {
+      font-size: 13px;
+      color: #1a1a18;
+      opacity: 0.4;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .sec-link:hover {
+      opacity: 0.9;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      padding: 3.5rem 4rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      margin-bottom: 4rem;
+    }
+
+    .photo-box {
+      width: 100%;
+      max-width: 380px;
+      height: 260px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.06);
+      margin-bottom: 2.25rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-placeholder-text {
+      font-size: 12px;
+      opacity: 0.3;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      opacity: 0.4;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(44px, 5vw, 68px);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bio {
+      font-size: 16px;
+      opacity: 0.55;
+      max-width: 440px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .panel-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      opacity: 0.4;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .placeholder {
+      border: 1px dashed rgba(0,0,0,0.15);
+      border-radius: 12px;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .placeholder p {
+      font-size: 14px;
+      opacity: 0.4;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 1.5rem;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
       }
-      h1 {
-        color: #333333;
+      .sidebar-divider { display: none; }
+      .secondary-links { flex-direction: row; gap: 1rem; }
+      .main { padding: 2.5rem 1.5rem; }
+      .photo-box { max-width: 100%; height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar-name">Jay Cummings</span>
+  </div>
+
+  <div class="layout">
+
+    <div class="sidebar">
+      <div class="main-tabs">
+        <span class="tab-main active" onclick="switchTab('projects', this)">Projects</span>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="secondary-links">
+        <!-- REPLACE YOUR_RESUME_LINK_HERE with your actual resume URL -->
+        <a class="sec-link" href="YOUR_RESUME_LINK_HERE" target="_blank">Resume</a>
+        <a class="sec-link" href="https://linkedin.com/in/jay-cummings-aa9079250/" target="_blank">LinkedIn</a>
+        <a class="sec-link" href="mailto:cummjt23@wfu.edu">Email</a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="hero">
+
+        <!-- PHOTO: upload your photo to GitHub and replace YOUR_PHOTO_HERE.jpg with the filename -->
+        <div class="photo-box">
+          <img src="YOUR_PHOTO_HERE.jpg" alt="Jay Cummings"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <span class="photo-placeholder-text" style="display:none;">Photo coming soon</span>
+        </div>
+
+        <!-- EDIT YOUR TAG LINE HERE -->
+        <p class="hero-tag">MARKETING · EVENTS · STRATEGY</p>
+
+        <!-- YOUR NAME -->
+        <h1>Jay<br>Cummings</h1>
+
+        <!-- EDIT YOUR BIO HERE -->
+        <p class="hero-bio">
+          Marketing & Business student at Wake Forest University. I build events, teams, and community programs that actually mean something.
+        </p>
+
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div id="panel-projects" class="panel active">
+        <p class="panel-label">PROJECTS</p>
+
+        <!-- DELETE this when you have real projects to add -->
+        <div class="placeholder">
+          <p>Projects coming soon.</p>
+        </div>
+
+        <!-- EXAMPLE project block — copy and paste for each project:
+        <div style="margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <p style="font-size: 11px; letter-spacing: 0.1em; opacity: 0.4; margin-bottom: 0.5rem;">2025</p>
+          <h2 style="font-family: 'Instrument Serif', serif; font-size: 22px; font-weight: 400; margin-bottom: 0.5rem;">Project Name</h2>
+          <p style="font-size: 15px; opacity: 0.55; line-height: 1.8;">Short description of the project and your role.</p>
+        </div>
+        -->
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchTab(name, el) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-main').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + name).classList.add('active');
+      el.classList.add('active');
+    }
+
+    window.addEventListener('load', function() {
+      const img = document.querySelector('.photo-box img');
+      if (img && img.src.includes('YOUR_PHOTO_HERE')) {
+        img.style.display = 'none';
+        img.nextElementSibling.style.display = 'block';
       }
-      p {
-        color: #666666;
-        font-size: 18px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is my first website. I built it myself!</p>
-  </body>
+    });
+  </script>
+
+</body>
 </html>
