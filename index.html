@@ -121,7 +121,7 @@
 
     .sec-link-sub {
       font-size: 10px;
-      opacity: 0.3;
+      opacity: 0.6;
       display: block;
       margin-top: 1px;
       letter-spacing: 0.01em;
@@ -164,16 +164,9 @@
       letter-spacing: 0.04em;
     }
 
-    .about-section {
-      padding: 3.5rem 4rem;
-    }
-
-    .about-label {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      opacity: 0.4;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
+    .hero-block {
+      padding: 3.5rem 4rem 3rem;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 
     .about-name {
@@ -183,15 +176,32 @@
       font-style: italic;
       letter-spacing: -0.03em;
       line-height: 1.05;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
-    .about-bio {
-      font-size: 16px;
+    .hero-blurb {
+      font-size: 15px;
       opacity: 0.55;
       max-width: 440px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .bio-block {
+      padding: 3rem 4rem 3.5rem;
+    }
+
+    .bio-block p {
+      font-size: 15px;
+      opacity: 0.55;
+      max-width: 520px;
       line-height: 1.85;
       font-weight: 300;
+      margin-bottom: 1.25rem;
+    }
+
+    .bio-block p:last-child {
+      margin-bottom: 0;
     }
 
     .projects-inner {
@@ -235,7 +245,7 @@
       .main-tabs { flex-direction: row; gap: 1rem; }
       .sidebar-divider { display: none; }
       .sec-links { flex-direction: row; gap: 1rem; }
-      .about-section, .projects-inner { padding: 2.5rem 1.5rem; }
+      .hero-block, .bio-block, .projects-inner { padding: 2.5rem 1.5rem; }
       .photo-full { height: 220px; }
     }
   </style>
@@ -257,22 +267,12 @@
       <div class="sidebar-divider"></div>
 
       <div class="sec-links">
-
-        <!-- RESUME: replace the href with your actual GitHub resume URL once uploaded -->
-        <a class="sec-link" href="Jay_Cummings_Resume.pdf" target="_blank">
-          Resume
-        </a>
-
-        <a class="sec-link" href="https://linkedin.com/in/jay-cummings-aa9079250/" target="_blank">
-          LinkedIn
-        </a>
-
-        <!-- EMAIL with address shown underneath -->
+        <a class="sec-link" href="Jay_Cummings_Resume.pdf" target="_blank">Resume</a>
+        <a class="sec-link" href="https://linkedin.com/in/jay-cummings-aa9079250/" target="_blank">LinkedIn</a>
         <a class="sec-link" href="mailto:jaytcummings31@gmail.com">
           Email
           <span class="sec-link-sub">jaytcummings31@gmail.com</span>
         </a>
-
       </div>
     </div>
 
@@ -280,7 +280,6 @@
 
       <div id="panel-home" class="panel active">
 
-        <!-- PHOTO: rename your photo to photo.jpg and upload it to GitHub -->
         <div class="photo-full">
           <img
             src="photo.jpg"
@@ -290,15 +289,22 @@
           <span class="photo-placeholder" style="display:none;">Photo coming soon</span>
         </div>
 
-        <div class="about-section">
-          <p class="about-label">ABOUT</p>
-
-          <!-- EDIT YOUR NAME HERE -->
+        <div class="hero-block">
           <h1 class="about-name">Jay<br>Cummings</h1>
+          <p class="hero-blurb">
+            Event strategist and creative problem solver. Currently shaping the fan and athlete experience at the 2026 USA Special Olympics.
+          </p>
+        </div>
 
-          <!-- EDIT YOUR BIO HERE -->
-          <p class="about-bio">
-            Marketing & Business student at Wake Forest University. I build events, teams, and community programs that actually mean something.
+        <div class="bio-block">
+          <p>
+            My name is Jay Cummings. I grew up in Kenmore, Washington and now study at Wake Forest University in Winston-Salem, North Carolina. I am a rising senior at Wake Forest majoring in Marketing and International Business with a minor in Cognitive Psychology.
+          </p>
+          <p>
+            Most recently I worked as a Marketing and Events Intern at the 2026 USA Special Olympics, where I conceptualized and designed the ESPN Unified Challenge and worked directly with partners like Target and US Bank to execute their activations.
+          </p>
+          <p>
+            I care about work that moves people and leaves something behind. Here you will find my work and the experiences that have shaped me. Feel free to reach out!
           </p>
         </div>
 
@@ -307,21 +313,9 @@
       <div id="panel-projects" class="panel">
         <div class="projects-inner">
           <p class="panel-label">PROJECTS</p>
-
-          <!-- DELETE this when you have real projects -->
           <div class="placeholder">
             <p>Projects coming soon.</p>
           </div>
-
-          <!-- HOW TO ADD A PROJECT LATER — copy this block for each one:
-
-          <div style="margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(0,0,0,0.08);">
-            <p style="font-size: 11px; letter-spacing: 0.1em; opacity: 0.4; margin-bottom: 0.5rem;">2025</p>
-            <h2 style="font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; margin-bottom: 0.6rem;">Project Name</h2>
-            <p style="font-size: 15px; opacity: 0.55; line-height: 1.8; max-width: 480px;">Short description of what the project was and what you did.</p>
-          </div>
-
-          -->
         </div>
       </div>
 
@@ -338,7 +332,7 @@
 
     window.addEventListener('load', function () {
       const img = document.querySelector('.photo-full img');
-      if (img && (img.naturalWidth === 0)) {
+      if (img && img.naturalWidth === 0) {
         img.style.display = 'none';
         img.nextElementSibling.style.display = 'block';
       }
