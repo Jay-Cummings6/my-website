@@ -281,11 +281,21 @@
       margin: 0 1.5rem;
     }
 
+    .photo-grid a {
+      display: block;
+    }
+
     .photo-grid img {
       width: 100%;
       height: 90px;
       object-fit: cover;
       border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .photo-grid img:hover {
+      opacity: 0.85;
     }
 
     @media (max-width: 640px) {
@@ -380,13 +390,14 @@
             <span class="project-number">02</span>
             <div>
               <div class="project-title">ESPN Unified Challenge</div>
-              <p class="project-desc">Conceptualized and designed the ESPN Unified Challenge, an event integrating 16 sports for the 2026 USA Special Olympics. Led the creative framework determining how the competition would be structured and experienced by participants and spectators, then worked across internal teams to ensure logistics, visuals, and messaging were aligned for execution.</p>
+              <p class="project-desc">Conceptualized and designed the ESPN Unified Challenge, an event integrating 16 sports for the 2026 USA Special Olympics. Led the creative framework determining how the competition would be structured and experienced by participants and spectators, then worked across internal teams to ensure logistics, visuals, and messaging were aligned for a successful show.</p>
+              <p class="project-desc" style="margin-top: 0.75rem;">Produced all jumbotron graphics for the event and managed talent, serving as a point of contact between production, partners, and our NBA, NFL, and Olympic athletes to ensure seamless execution.</p>
             </div>
             <div class="photo-grid">
-              <img src="IMG_6076.PNG" alt="ESPN Unified Challenge" />
-              <img src="IMG_6075.PNG" alt="ESPN Unified Challenge" />
-              <img src="IMG_6077.PNG" alt="ESPN Unified Challenge" />
-              <img src="IMG_6078.PNG" alt="ESPN Unified Challenge" />
+              <a href="IMG_6076.PNG" target="_blank"><img src="IMG_6076.PNG" alt="ESPN Unified Challenge" /></a>
+              <a href="IMG_6075.PNG" target="_blank"><img src="IMG_6075.PNG" alt="ESPN Unified Challenge" /></a>
+              <a href="IMG_6077.PNG" target="_blank"><img src="IMG_6077.PNG" alt="ESPN Unified Challenge" /></a>
+              <a href="IMG_6078.PNG" target="_blank"><img src="IMG_6078.PNG" alt="ESPN Unified Challenge" style="object-position: center 30%;" /></a>
             </div>
             <span class="project-date">May 2025</span>
           </div>
