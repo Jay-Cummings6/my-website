@@ -371,7 +371,9 @@
       border: 1px solid rgba(0,0,0,0.15);
       align-self: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      cursor: default;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
     }
 
     .project-thumb-static img {
@@ -380,6 +382,32 @@
       object-fit: cover;
       object-position: top;
       display: block;
+    }
+
+    .project-thumb-static::after {
+      content: '🔍 View';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 6px 0;
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .project-thumb-static:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+
+    .project-thumb-static:hover::after {
+      opacity: 1;
     }
 
     .project-thumb-logo {
@@ -597,7 +625,7 @@
               <div class="project-title">Special Olympics USA Games Chatbot</div>
               <p class="project-desc">Built a custom AI chatbot for the 2026 Special Olympics USA Games website using HTML, CSS, and a natural language processing API. Designed to handle visitor questions about schedules, venues, volunteering, and parking in real time.</p>
             </div>
-            <div class="project-thumb-static">
+            <div class="project-thumb-static" onclick="openLightbox('chatbot-preview.PNG')">
               <img src="chatbot-preview.PNG" alt="Special Olympics Chatbot" />
             </div>
             <span class="project-date">May 2026</span>
