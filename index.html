@@ -273,6 +273,21 @@
       letter-spacing: 0.05em;
     }
 
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      width: 200px;
+      margin: 0 1.5rem;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
     @media (max-width: 640px) {
       .layout { grid-template-columns: 1fr; }
       .sidebar {
@@ -293,6 +308,7 @@
       .photo-full { height: 220px; }
       .project-item { grid-template-columns: 30px 1fr; }
       .project-date { display: none; }
+      .photo-grid { display: none; }
     }
   </style>
 </head>
@@ -360,11 +376,17 @@
         <div class="projects-inner">
           <p class="panel-label">PROJECTS</p>
 
-          <div class="project-item">
+          <div class="project-item" style="grid-template-columns: 40px 1fr auto 100px;">
             <span class="project-number">02</span>
             <div>
               <div class="project-title">ESPN Unified Challenge</div>
               <p class="project-desc">Conceptualized and designed the ESPN Unified Challenge, an event integrating 16 sports for the 2026 USA Special Olympics. Led the creative framework determining how the competition would be structured and experienced by participants and spectators, then worked across internal teams to ensure logistics, visuals, and messaging were aligned for execution.</p>
+            </div>
+            <div class="photo-grid">
+              <img src="IMG_6076.PNG" alt="ESPN Unified Challenge" />
+              <img src="IMG_6075.PNG" alt="ESPN Unified Challenge" />
+              <img src="IMG_6077.PNG" alt="ESPN Unified Challenge" />
+              <img src="IMG_6078.PNG" alt="ESPN Unified Challenge" />
             </div>
             <span class="project-date">May 2025</span>
           </div>
@@ -373,7 +395,7 @@
             <span class="project-number">01</span>
             <div>
               <div class="project-title">SmartSheets</div>
-              <p class="project-desc">Built the centralized <strong>SmartSheets</strong> Special Events Dashboard to organize all program details for the 2026 USA Special Olympics. Designed to serve as a single source of truth for internal teams, allowing seamless reference across all phases of event planning from logistics and visuals to sponsor messaging and execution.</p>
+              <p class="project-desc">Built a centralized <strong>SmartSheets</strong> dashboard to organize all event details for the 2026 USA Special Olympics. Designed to serve as a single source of truth for internal teams, allowing seamless reference across all phases of event planning from logistics and visuals to sponsor messaging and execution.</p>
             </div>
             <span class="project-date">May 2025</span>
           </div>
