@@ -281,10 +281,6 @@
       margin: 0 1.5rem;
     }
 
-    .photo-grid a {
-      display: block;
-    }
-
     .photo-grid img {
       width: 100%;
       height: 90px;
@@ -296,6 +292,47 @@
 
     .photo-grid img:hover {
       opacity: 0.85;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.15s;
+    }
+
+    .lightbox-close:hover {
+      opacity: 1;
     }
 
     @media (max-width: 640px) {
@@ -323,6 +360,12 @@
   </style>
 </head>
 <body>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+    <img id="lightbox-img" src="" alt="Full size" onclick="event.stopPropagation()" />
+  </div>
 
   <div class="topbar">
     <span class="topbar-name">Jay Cummings</span>
@@ -394,10 +437,10 @@
               <p class="project-desc" style="margin-top: 0.75rem;">Produced all jumbotron graphics for the event and managed talent, serving as a point of contact between production, partners, and our NBA, NFL, and Olympic athletes to ensure seamless execution.</p>
             </div>
             <div class="photo-grid">
-              <a href="IMG_6076.PNG" target="_blank"><img src="IMG_6076.PNG" alt="ESPN Unified Challenge" /></a>
-              <a href="IMG_6075.PNG" target="_blank"><img src="IMG_6075.PNG" alt="ESPN Unified Challenge" /></a>
-              <a href="IMG_6077.PNG" target="_blank"><img src="IMG_6077.PNG" alt="ESPN Unified Challenge" /></a>
-              <a href="IMG_6078.PNG" target="_blank"><img src="IMG_6078.PNG" alt="ESPN Unified Challenge" style="object-position: center 30%;" /></a>
+              <img src="IMG_6076.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_6075.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_6077.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_6078.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
             </div>
             <span class="project-date">May 2025</span>
           </div>
@@ -425,12 +468,26 @@
       el.classList.add('active');
     }
 
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightbox-img').src = '';
+    }
+
     window.addEventListener('load', function () {
       const img = document.querySelector('.photo-full img');
       if (img && img.naturalWidth === 0) {
         img.style.display = 'none';
         img.nextElementSibling.style.display = 'block';
       }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
     });
   </script>
 
