@@ -228,7 +228,7 @@
 
     .project-item {
       display: grid;
-      grid-template-columns: 40px 1fr 220px 100px;
+      grid-template-columns: 40px 1fr 240px 100px;
       gap: 1.5rem;
       padding: 2rem 0;
       border-top: 1px solid rgba(0,0,0,0.08);
@@ -285,6 +285,7 @@
       letter-spacing: 0.05em;
     }
 
+    /* PHOTO GRID — ESPN */
     .photo-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -307,15 +308,18 @@
       opacity: 0.85;
     }
 
+    /* THUMBNAIL — Website and NewZ */
     .project-thumb {
       display: block;
-      width: 100%;
-      height: 120px;
+      width: 240px;
+      height: 228px;
       overflow: hidden;
       border-radius: 4px;
-      border: 1px solid rgba(0,0,0,0.08);
-      transition: opacity 0.15s;
+      border: 1px solid rgba(0,0,0,0.15);
+      transition: all 0.2s;
       align-self: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .project-thumb img {
@@ -326,8 +330,35 @@
       display: block;
     }
 
+    .project-thumb::after {
+      content: '↗ View Site';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 6px 0;
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
     .project-thumb:hover {
-      opacity: 0.8;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+
+    .project-thumb:hover::after {
+      opacity: 1;
+    }
+
+    /* EMPTY COLUMN for projects without images */
+    .project-empty {
+      width: 240px;
     }
 
     .lightbox {
@@ -392,6 +423,7 @@
       .project-date { display: none; }
       .photo-grid { display: none; }
       .project-thumb { display: none; }
+      .project-empty { display: none; }
     }
   </style>
 </head>
@@ -514,7 +546,7 @@
               <div class="project-title">SmartSheets</div>
               <p class="project-desc">Built a centralized <strong>SmartSheets</strong> dashboard to organize all event details for the 2026 USA Special Olympics. Designed to serve as a single source of truth for internal teams, allowing seamless reference across all phases of event planning from logistics and visuals to sponsor messaging and execution.</p>
             </div>
-            <div></div>
+            <div class="project-empty"></div>
             <span class="project-date">May 2025</span>
           </div>
 
@@ -525,7 +557,7 @@
               <div class="project-title">Mary's Place Soccer Clinic</div>
               <p class="project-desc">Founded a free soccer clinic at a local homeless shelter in Kenmore, Washington, providing over 25 hours of free childcare for working parents. Grew the program through community partnerships with local youth teams, raising $750 in equipment donations and developing a coach leadership program at Inglemoor High School to ensure the clinic's long term success.</p>
             </div>
-            <div></div>
+            <div class="project-empty"></div>
             <span class="project-date">April 2022 — August 2025</span>
           </div>
 
