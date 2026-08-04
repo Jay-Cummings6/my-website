@@ -355,6 +355,58 @@
       opacity: 1;
     }
 
+    /* Logo thumb — white background for logos */
+    .project-thumb-logo {
+      display: block;
+      width: 160px;
+      height: 100px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.15);
+      transition: all 0.2s;
+      align-self: center;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-thumb-logo img {
+      width: 85%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .project-thumb-logo::after {
+      content: '↗ View Site';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 6px 0;
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .project-thumb-logo:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+    }
+
+    .project-thumb-logo:hover::after {
+      opacity: 1;
+    }
+
     .project-empty {
       width: 240px;
     }
@@ -421,6 +473,7 @@
       .project-date { display: none; }
       .photo-grid { display: none; }
       .project-thumb { display: none; }
+      .project-thumb-logo { display: none; }
       .project-empty { display: none; }
     }
   </style>
@@ -555,7 +608,9 @@
               <div class="project-title">Mary's Place Soccer Clinic</div>
               <p class="project-desc">Founded a free soccer clinic at a local homeless shelter in Kenmore, Washington, providing over 25 hours of free childcare for working parents. Grew the program through community partnerships with local youth teams, raising $750 in equipment donations and developing a coach leadership program at Inglemoor High School to ensure the clinic's long term success.</p>
             </div>
-            <div class="project-empty"></div>
+            <a href="https://www.marysplaceseattle.org/" target="_blank" class="project-thumb-logo">
+              <img src="marys-place-logo.PNG" alt="Mary's Place" />
+            </a>
             <span class="project-date">April 2022 — August 2025</span>
           </div>
 
