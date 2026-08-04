@@ -214,6 +214,12 @@
       margin-bottom: 0;
     }
 
+    .bio-link {
+      text-decoration: underline;
+      cursor: pointer;
+      text-underline-offset: 2px;
+    }
+
     .projects-inner {
       padding: 3.5rem 4rem;
     }
@@ -448,9 +454,9 @@
     }
 
     .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
+      width: 60%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
       border-radius: 6px;
     }
 
@@ -514,7 +520,7 @@
     <div class="sidebar">
       <div class="main-tabs">
         <span class="tab active" onclick="switchTab('home', this)">Home</span>
-        <span class="tab" onclick="switchTab('projects', this)">Projects</span>
+        <span class="tab" id="projects-tab" onclick="switchTab('projects', this)">Projects</span>
       </div>
 
       <div class="sidebar-divider"></div>
@@ -551,13 +557,13 @@
 
         <div class="bio-block">
           <p>
-            My name is Jay Cummings. I grew up in Kenmore, Washington and now study at Wake Forest University in Winston-Salem, North Carolina. I am a senior majoring in Marketing and International Business with a minor in Cognitive Psychology.
+            My name is Jay Cummings. I grew up in Kenmore, Washington and now study at Wake Forest University in Winston-Salem, North Carolina. I am a senior majoring in Business and Enterprise Management with a minor in Cognitive Psychology.
           </p>
           <p>
-            Most recently I worked as a Production Engineer at the 2026 USA Special Olympics, where I orchestrated planning and live execution across a national multi-venue sporting event involving 3,000+ athletes, 50+ sponsors, and live broadcasts. On site I directed our volunteers and sponsors, designed jumbotron graphics for the ESPN Unified Sports Challenge and managed talent including NBA, NFL, MLB, PGA, and Olympic athletes.
+            Most recently I worked as a Production Engineer at the 2026 USA Special Olympics, where I orchestrated planning and live execution across a national multi-venue sporting event involving 3,000+ athletes, 50+ sponsors, and multiple live broadcasts. On site I directed our volunteers and sponsors, designed jumbotron graphics for the ESPN Unified Sports Challenge and managed talent including NBA, NFL, MLB, PGA, and Olympic athletes.
           </p>
           <p>
-            I care about work that moves people and leaves something behind. Here you will find my work and the experiences that have carved my career path. Feel free to reach out!
+            I care about work that moves people and leaves something behind. <span class="bio-link" onclick="switchTab('projects', document.getElementById('projects-tab'))">Here</span> you will find my work and the experiences that have carved my career path. Feel free to reach out!
           </p>
         </div>
 
@@ -576,10 +582,10 @@
               <p class="project-desc" style="margin-top: 0.75rem;">Produced all jumbotron graphics for the event and managed talent, serving as a point of contact between production, partners, and our NBA, NFL, and Olympic athletes to ensure seamless execution.</p>
             </div>
             <div class="photo-grid">
-              <img src="IMG_6076.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
-              <img src="IMG_6075.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
-              <img src="IMG_6077.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
-              <img src="IMG_6078.PNG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_5581.jpeg" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_5586.jpeg" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_5594.jpeg" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
+              <img src="IMG_9875.JPEG" alt="ESPN Unified Challenge" onclick="openLightbox(this.src)" />
             </div>
             <span class="project-date">June 2026</span>
           </div>
